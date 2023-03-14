@@ -8,6 +8,7 @@ const PostRoute = require("./route/post.route");
 const CatRouter = require("./route/category.route");
 const multer = require("multer");
 const path = require("path");
+const cors = require("cors");
 
 dotenv.config();
 
@@ -33,7 +34,11 @@ const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json("file has been uploaded");
 });
-
+app.use(
+  cors({
+    origin: ["http://localhost:5000", "https://blogallday-api.onrender.com"],
+  })
+);
 app.use("/api/auth", AuthRouter);
 app.use("/api/users/", UserRouter);
 app.use("/api/posts", PostRoute);
