@@ -40,7 +40,7 @@ app.use(
   })
 );
 app.use("/api/auth", AuthRouter);
-app.use("/api/users/", UserRouter);
+app.use("/api/users", UserRouter);
 app.use("/api/posts", PostRoute);
 app.use("/api/cat", CatRouter);
 app.listen(5000, () => {
