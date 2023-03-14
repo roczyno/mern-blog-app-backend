@@ -36,7 +36,7 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 });
 app.use(
   cors({
-    origin: ["http://localhost:5000", "https://blogallday-api.onrender.com"],
+    origin: ["http://localhost:5000", "https://blogallday.onrender.com"],
   })
 );
 app.use("/api/auth", AuthRouter);
